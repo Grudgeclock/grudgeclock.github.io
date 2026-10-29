@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .g1 { width: 560px; height: 460px; left: 700px; top: 160px; background: rgba(193, 83, 26, .5); }
+  .g2 { width: 420px; height: 380px; left: 960px; top: 300px; background: rgba(139, 0, 0, .5); }
+  .g3 { width: 520px; height: 420px; left: -160px; top: -200px; background: rgba(143, 163, 181, .12); }
+  .copy { position: absolute; left: 72px; top: 70px; width: 600px; }
+  .wordmark { font-size: 30px; }
+  h1 { font-size: 66px; line-height: 1.04; font-weight: 800; letter-spacing: -0.035em; margin-top: 64px; }
+  h1 em { font-style: normal; color: var(--orange); }
+  p { margin-top: 26px; font-size: 26px; line-height: 1.4; color: var(--text2); }
+  .pill { position: absolute; left: 72px; bottom: 64px; display: flex; gap: 12px; }
+  .pill span { font-size: 20px; font-weight: 600; padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--border); color: var(--text); background: rgba(20,25,37,.8); }
+  .stage { position: absolute; inset: 0; perspective: 1800px; }
+  .phone { width: 330px; left: 700px; top: 92px; transform: rotateY(-14deg) rotateZ(4deg); }
+  .slip { left: 930px; top: 250px; width: 250px; transform: rotateZ(9deg); z-index: 2; }
+</style></head>
+<body class="opaque">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+  <div class="copy">
+    <div class="wordmark"><img src="/assets/icon-source.png" alt="">Grudge Clock</div>
+    <h1>How long have you been <em>holding it?</em></h1>
+    <p>Log a grudge. Watch the clock count every second.</p>
+  </div>
+  <div class="pill"><span>Free on Android</span><span>No account</span><span>Offline</span></div>
+  <div class="stage">
+    <div class="phone"><img src="/assets/screens/detail.png" alt=""><div class="island"></div></div>
+    <div class="receipt slip" data-h="543"><img src="/assets/screens/receipt-single.png" alt=""></div>
+  </div>
+  <script src="scene.js"></script>
+</body></html>

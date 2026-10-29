@@ -1,0 +1,10 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .phone { left: 50px; top: 40px; }
+</style></head>
+<body>
+  <div class="phone"><img id="shot" alt=""><div class="island"></div></div>
+  <script src="scene.js"></script>
+  <script>document.getElementById('shot').src = '/assets/screens/' + params.get('shot') + '.png';</script>
+</body></html>

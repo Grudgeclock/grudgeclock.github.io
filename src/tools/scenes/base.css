@@ -1,0 +1,43 @@
+/* Shared look for the rendered graphics. Colours are the app's own (src/constants/theme.ts). */
+@font-face { font-family: Inter; font-weight: 400; src: url(/assets/fonts/inter-400.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(/assets/fonts/inter-600.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 800; src: url(/assets/fonts/inter-800.woff2) format("woff2"); }
+@font-face { font-family: Mono; font-weight: 500; src: url(/assets/fonts/jetbrains-mono-500.woff2) format("woff2"); }
+@font-face { font-family: Mono; font-weight: 700; src: url(/assets/fonts/jetbrains-mono-700.woff2) format("woff2"); }
+
+:root {
+  --navy: #0B0E14; --surface: #141925; --raised: #1B2130; --border: #222A3A;
+  --text: #ECEEF2; --text2: #9AA3B2; --muted: #6E7787;
+  --orange: #E0763A; --burnt: #C1531A; --red: #D86A6A; --gold: #D6A52A; --slate: #8FA3B5;
+  --paper: #F6F4EF; --ink: #14171F;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body { font-family: Inter, sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
+body.opaque { background: var(--navy); }
+.mono { font-family: Mono, monospace; }
+
+/* A phone: dark titanium body, thin bezel, the real screenshot inside. */
+.phone {
+  position: absolute; width: 360px; aspect-ratio: 390 / 844; border-radius: 58px; padding: 11px;
+  background: linear-gradient(145deg, #2A303C 0%, #0E1117 35%, #1A1F29 70%, #3A4150 100%);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,.10) inset, 0 0 0 1px #000,
+              0 60px 120px -30px rgba(0,0,0,.85), 0 30px 60px -20px rgba(0,0,0,.6);
+}
+.phone::before { /* side button */
+  content: ""; position: absolute; right: -3px; top: 22%; width: 3px; height: 70px; border-radius: 2px; background: #2A303C;
+}
+.phone img { display: block; width: 100%; height: 100%; border-radius: 47px; object-fit: cover; }
+.phone .island {
+  position: absolute; top: 22px; left: 50%; transform: translateX(-50%); width: 104px; height: 30px; border-radius: 16px; background: #000;
+}
+
+/* A torn receipt cut out of the app's capture: the navy frame and teeth are clipped away. */
+.receipt { position: absolute; display: block; filter: drop-shadow(0 40px 50px rgba(0,0,0,.55)) drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
+.receipt img { display: block; width: 100%; }
+
+/* Soft coloured light behind the product. */
+.glow { position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; }
+
+.wordmark { display: flex; align-items: center; gap: 14px; font-weight: 800; letter-spacing: -0.02em; }
+.wordmark img { width: 44px; height: 44px; border-radius: 11px; }

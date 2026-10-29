@@ -1,0 +1,70 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .g1 { width: 640px; height: 480px; right: -140px; top: -120px; background: rgba(193, 83, 26, .42); }
+  .g2 { width: 520px; height: 420px; left: -180px; bottom: -220px; background: rgba(139, 0, 0, .35); }
+  .eyebrow { position: absolute; left: 72px; top: 64px; font-size: 22px; font-weight: 600; letter-spacing: .16em; color: var(--text2); }
+  .foot { position: absolute; left: 72px; bottom: 56px; right: 72px; display: flex; justify-content: space-between; align-items: center; }
+  .wordmark { font-size: 24px; } .wordmark img { width: 36px; height: 36px; border-radius: 9px; }
+  .note { font-size: 20px; color: var(--muted); }
+
+  /* The app's own grudge card, enlarged. */
+  .card { position: absolute; left: 72px; right: 72px; top: 130px; border-radius: 30px; padding: 38px 48px 36px 58px;
+    background: var(--surface); border: 2px solid var(--border); overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); }
+  .card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 12px; background: var(--heat); }
+  .card h2 { font-size: 40px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+  .label { margin-top: 26px; font-size: 18px; font-weight: 600; letter-spacing: .14em; color: var(--text2); }
+  .clock { margin-top: 8px; font-family: Mono; font-weight: 700; font-size: 104px; line-height: 1; letter-spacing: -0.03em; }
+  .meta { margin-top: 26px; display: flex; gap: 18px; align-items: center; font-size: 20px; }
+  .heat { display: flex; gap: 10px; align-items: center; font-weight: 600; letter-spacing: .08em; color: var(--heat-text); }
+  .heat::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--heat-text); }
+  .chip { padding: 6px 16px; border-radius: 999px; background: var(--raised); border: 1.5px solid var(--border); color: var(--text2); }
+
+  /* Dictionary entries, on receipt paper. */
+  .dict { position: absolute; top: 140px; display: flex; gap: 32px; left: 72px; right: 72px; }
+  .entry { flex: 1; background: var(--paper); color: var(--ink); border-radius: 6px; padding: 34px 36px; box-shadow: 0 30px 60px -24px rgba(0,0,0,.75); }
+  .entry .w { font-size: 54px; font-weight: 800; letter-spacing: -0.03em; }
+  .entry .ipa { display: block; margin-top: 4px; white-space: nowrap; font-size: 26px; font-weight: 400; color: #5A5F69; letter-spacing: 0; }
+  .entry .pos { margin-top: 6px; font-family: Mono; font-size: 18px; letter-spacing: .12em; color: var(--burnt); font-weight: 700; }
+  .entry p { margin-top: 18px; font-size: 25px; line-height: 1.38; }
+
+  /* Receipts. */
+  .big { position: absolute; left: 72px; top: 150px; width: 640px; }
+  .big h2 { font-size: 92px; line-height: .98; font-weight: 800; letter-spacing: -0.045em; }
+  .big h2 em { font-style: normal; color: var(--orange); }
+  .big p { margin-top: 26px; font-size: 30px; line-height: 1.35; color: var(--text2); }
+  .slip { right: 110px; top: 70px; width: 300px; transform: rotateZ(7deg); }
+</style></head>
+<body class="opaque">
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div id="root"></div>
+  <div class="foot"><div class="wordmark"><img src="/assets/icon-source.png" alt="">Grudge Clock</div><div class="note" id="note"></div></div>
+  <script src="scene.js"></script>
+  <script>
+    const HEAT = { volcanic: ['#8B0000', '#D86A6A', 'VOLCANIC'], burning: ['#C1531A', '#E0763A', 'BURNING'], simmering: ['#B8860B', '#D6A52A', 'SIMMERING'] };
+    const card = (eyebrow, title, label, clock, heat, category, note) => {
+      const [base, text, name] = HEAT[heat];
+      return `<div class="eyebrow">${eyebrow}</div>
+        <div class="card" style="--heat:${base};--heat-text:${text}">
+          <h2>${title}</h2><div class="label">${label}</div><div class="clock">${clock}</div>
+          <div class="meta"><span class="heat">${name}</span><span class="chip">${category}</span></div>
+        </div>` + (note ? `<script>document.getElementById('note').textContent=${JSON.stringify(note)}<\/script>` : '');
+    };
+    const CARDS = {
+      animals: () => card('ANIMALS THAT HOLD GRUDGES', 'Trapped seven crows while wearing a fearsome mask', 'HELD AGAINST THE MASK FOR', '≈17 years', 'volcanic', 'Stranger', 'University of Washington crows, 2006–2023'),
+      history: () => card('THE LONGEST GRUDGES IN HISTORY', 'Rome vs. Carthage', 'UNTIL TWO MAYORS SIGNED A TREATY', '2,131 years', 'volcanic', 'Other', '146 BC – 1985'),
+      'how-long': () => card('HOW LONG CAN YOU HOLD A GRUDGE?', 'My sister still has my hoodie', 'HOLDING THIS FOR', '6y 2mo 17d', 'burning', 'Family', 'The clock keeps going until you stop it'),
+      vs: () => `<div class="eyebrow">GRUDGE VS. RESENTMENT</div><div class="dict">
+          <div class="entry"><div class="w">grudge<span class="ipa">/ɡrʌdʒ/</span></div><div class="pos">NOUN · COUNTABLE</div>
+            <p>A lasting ill will against someone, for something specific. You hold one, or several.</p></div>
+          <div class="entry"><div class="w">resentment<span class="ipa">/rɪˈzɛntmənt/</span></div><div class="pos">NOUN · MOSTLY UNCOUNTABLE</div>
+            <p>The bitter feeling itself. From French <i>ressentir</i>: re- + <i>sentir</i>, “to feel”.</p></div></div>`,
+      receipts: () => `<div class="eyebrow">SLANG, EXPLAINED</div><div class="big"><h2>Keeping <em>receipts</em></h2>
+          <p>Saving the proof: the screenshot, the message, the date. For when someone says it never happened.</p></div>
+          <div class="receipt slip" data-h="543"><img src="/assets/screens/receipt-single.png" alt=""></div>`,
+    };
+    document.getElementById('root').innerHTML = CARDS[params.get('card')]();
+    for (const s of document.querySelectorAll('#root script')) eval(s.textContent);
+    for (const el of document.querySelectorAll('.receipt[data-h]')) el.querySelector('img').style.clipPath = tornClip(Number(el.dataset.h));
+  </script>
+</body></html>

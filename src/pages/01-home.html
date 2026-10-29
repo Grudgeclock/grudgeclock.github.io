@@ -1,0 +1,183 @@
+<!--page
+{"path": "/",
+ "title": "Grudge Clock – Grudge Tracker App for Android",
+ "social_title": "Grudge Clock: how long have you been holding it?",
+ "description": "Grudge Clock is a free grudge tracker for Android. Log a grudge and see, to the second, how long you've held it. Offline, no account, shareable receipts.",
+ "campaign": "home",
+ "preload": ["hero-1200.webp"],
+ "scripts": ["clock.js"],
+ "jsonld": [
+  {"@type": ["MobileApplication", "SoftwareApplication"], "@id": "https://grudgeclock.github.io/#app", "name": "Grudge Clock",
+   "url": "https://grudgeclock.github.io/",
+   "description": "A grudge tracker for Android. Log what happened and when it started, and the app shows a live count of exactly how long you've held it, with heat levels, milestones, stats and a shareable receipt. Offline, no account.",
+   "operatingSystem": "Android", "applicationCategory": "LifestyleApplication",
+   "installUrl": "https://play.google.com/store/apps/details?id=com.grudge_clock",
+   "downloadUrl": "https://play.google.com/store/apps/details?id=com.grudge_clock",
+   "isAccessibleForFree": true,
+   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+   "inLanguage": ["en", "pt-BR", "id"],
+   "image": "https://grudgeclock.github.io/assets/icon-512.png",
+   "screenshot": ["https://grudgeclock.github.io/assets/phone-list-920.webp", "https://grudgeclock.github.io/assets/phone-detail-920.webp", "https://grudgeclock.github.io/assets/phone-stats-920.webp"],
+   "featureList": ["Live timer on every grudge, from minutes to years", "Heat levels, categories, notes and subtopics", "Photo evidence", "Milestones and anniversary reminders", "Stats and a current streak", "Shareable grudge receipt", "Resolved archive", "Offline, no account, backups you control"],
+   "author": {"@id": "https://grudgeclock.github.io/#builtbyargo"}, "publisher": {"@id": "https://grudgeclock.github.io/#builtbyargo"}}
+ ]}
+-->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Free grudge tracker for Android</span>
+      <h1>A grudge tracker that counts <em>every second</em></h1>
+      <p class="lead">Write down what happened and when it started. Grudge Clock keeps a live count of exactly how long you've held it, from minutes to years. No therapy prompts, no nudges to forgive. Just the number.</p>
+      <div class="actions">
+        <a class="button primary" href="{{play_url}}" rel="noopener">Get it on Google Play</a>
+        <a class="button secondary" href="/receipt/">See the receipt</a>
+      </div>
+      <ul class="facts">
+        <li>Free</li><li>Works offline</li><li>No account</li><li>Your data stays on your phone</li>
+      </ul>
+    </div>
+    <div class="hero-art">{{img hero "Grudge Clock on two phones: a list of grudges with live timers, a grudge held for 1 year, 1 month and 17 days, and a printed grudge receipt" eager}}</div>
+  </div>
+  <div class="wrap">
+    <form class="demo" data-clock-form hidden aria-labelledby="demo-title">
+      <div class="demo-card">
+        <div>
+          <h2 id="demo-title" class="eyebrow">Try it here</h2>
+          <label for="demo-date">When did it start?</label>
+          <input id="demo-date" type="datetime-local" value="2025-01-01T09:00">
+          <p class="demo-readout" data-clock-out aria-live="off">Pick a date</p>
+          <p class="demo-sub" data-clock-sub></p>
+        </div>
+        <a class="button primary" href="{{play_url}}" rel="noopener">Keep it running on your phone</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="alt" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps. Then it counts on its own.</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Write down what happened</h3><p>A short title is enough: "Replied 'k'." Add a note, a category and a heat level if you like.</p></li>
+      <li><h3>Say when it started</h3><p>Now, last week, or years ago. Backdate it as far as you need. The clock picks up from that moment.</p></li>
+      <li><h3>Watch it count</h3><p>Every grudge shows a live timer. Time is worked out from the date itself, so it stays exact even if the app is closed for months.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Features</span>
+      <h2>Everything a grudge needs. Nothing it doesn't.</h2>
+      <p class="lead">Grudge Clock is a record-keeping tool with a dry sense of humour. It doesn't judge, coach or remind you to let go.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-text">
+        <h3>A live clock on every grudge</h3>
+        <p>Your list shows each grudge with its running time: "6 years, 2 months, 17 days". The longest one is marked as the oldest. Sort by oldest, newest, hottest or A–Z, filter by category, and search titles, notes and subtopics.</p>
+        <p>Each grudge has a heat level:</p>
+        <ul class="tags"><li class="t-mild">MILD</li><li class="t-simmering">SIMMERING</li><li class="t-burning">BURNING</li><li class="t-volcanic">VOLCANIC</li></ul>
+      </div>
+      <div class="feature-art">{{img phone-list "The Grudge Clock list: grudges with live timers, heat levels and categories, the oldest one marked"}}</div>
+    </div>
+
+    <div class="feature flip">
+      <div class="feature-text">
+        <h3>Every second, accounted for</h3>
+        <p>Open a grudge to see its clock at full size, the exact moment it started, and what's next on the calendar.</p>
+        <ul>
+          <li><strong>Milestones</strong> at one week, one month, three and six months, one year, two years and five years, with optional notifications.</li>
+          <li><strong>On this day:</strong> a reminder on a grudge's anniversary.</li>
+          <li><strong>Notes and subtopics</strong> for grievances with several parts.</li>
+          <li><strong>Photo evidence:</strong> attach the screenshot. A private copy stays in the app.</li>
+        </ul>
+      </div>
+      <div class="feature-art">{{img phone-detail "A grudge called 'He never apologised', held for 1 year, 1 month and 17 days, with a one-year milestone"}}</div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-text">
+        <h3>Stats that don't flatter you</h3>
+        <p>The numbers, laid out plainly: grudges logged, currently active, resolved, your longest active and longest resolved grudge, the average time to resolution, and your favourite heat level and category.</p>
+        <p>Plus the combined total of time spent holding grudges, and your current streak: how many consecutive days you've held at least one. "2,270 days without letting go" is a real thing the app will tell you.</p>
+      </div>
+      <div class="feature-art">{{img phone-stats "Grudge Clock stats: combined grudge time, grudges logged, active and resolved, and the current streak"}}</div>
+    </div>
+
+    <div class="feature flip">
+      <div class="feature-text">
+        <h3>Let go, if you want. The record stays.</h3>
+        <p>Resolve a grudge when you're ready and add a closure note. It moves to the resolved archive with its final time frozen. Changed your mind? Reactivate it, and its earlier resolutions stay on record.</p>
+        <p>Delete is there too, with undo for the moments you were hasty.</p>
+      </div>
+      <div class="feature-art">{{img phone-resolved "The resolved archive: grudges that were let go, each with its final running time"}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="paper-band" id="receipt">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">The receipt</span>
+      <h2>Print the evidence</h2>
+      <p class="lead">Turn your grudges into a till receipt and share it as an image: itemised, totalled and signed off with a verdict.</p>
+      <ul class="verdicts" aria-label="Receipt verdicts by total time">
+        <li><span>Under a week</span><span>"Just getting started."</span></li>
+        <li><span>Under six months</span><span>"Established."</span></li>
+        <li><span>Under a year</span><span>"This is a lifestyle now."</span></li>
+        <li><span>Under three years</span><span>"A career, at this point."</span></li>
+        <li><span>Longer</span><span>"Historic. Genuinely historic."</span></li>
+      </ul>
+      <a class="button primary" href="/receipt/">How the receipt works</a>
+    </div>
+    <div class="receipt-art">{{img receipt-showcase "Two Grudge Clock receipts: a receipt of grievances totalling 5,206 days, and a single grudge still running after 412 days"}}</div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Privacy</span>
+      <h2>Your grudges stay on your phone</h2>
+      <p class="lead">There's no account and no cloud. Nobody, including us, can read what you write.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Offline by design</h3><p>Everything you log is stored on your device. The app works without a connection.</p></li>
+      <li><h3>Backups you control</h3><p>Create a backup file with your records and photos, or export them as text. You decide where it goes.</p></li>
+      <li><h3>Discreet when you want</h3><p>Notifications are opt-in and can hide titles from your lock screen. Receipts can hide titles, dates and categories before you share.</p></li>
+    </ol>
+    <p class="note" style="margin-top:24px">The app is free and shows ads through Google AdMob, which asks for consent where the law requires it. Your titles, notes and photos are never passed to it. Details are in the <a href="/privacy/">privacy policy</a>.</p>
+  </div>
+</section>
+
+<section class="alt" id="articles">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Reading</span>
+      <h2>On grudges, at length</h2>
+      <p class="lead">What research says about how long grudges last, which animals hold them, and the longest ones on record.</p>
+    </div>
+    <div class="cards">
+      <a class="card" href="/articles/how-long-can-you-hold-a-grudge/">{{img article-how-long "A Grudge Clock card: my sister still has my hoodie, held for 6 years, 2 months, 17 days"}}<div class="card-body"><h3>How long can you hold a grudge?</h3><p>As long as you keep feeding it. What research says about why some grudges fade and others don't.</p></div></a>
+      <a class="card" href="/articles/animals-that-hold-grudges/">{{img article-animals "A Grudge Clock card: crows held a grudge against a mask for about 17 years"}}<div class="card-body"><h3>Animals that hold grudges</h3><p>Crows, ravens, elephants, chimpanzees, dogs and cats: who remembers, and for how long.</p></div></a>
+      <a class="card" href="/articles/longest-grudges-in-history/">{{img article-history "A Grudge Clock card: Rome vs. Carthage, 2,131 years"}}<div class="card-body"><h3>The longest grudges in history</h3><p>From Rome and Carthage to the Dassler brothers, timed the way the app would time them.</p></div></a>
+    </div>
+    <p style="margin-top:28px"><a href="/articles/">All articles</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <p class="clock-line">THE CLOCK IS ALREADY RUNNING</p>
+      <h2>You've been holding it this long anyway</h2>
+      <p class="lead">Grudge Clock is free on Android. It takes about ten seconds to log your first one.</p>
+      <a class="button primary" href="{{play_url}}" rel="noopener">Get it on Google Play</a>
+    </div>
+  </div>
+</section>

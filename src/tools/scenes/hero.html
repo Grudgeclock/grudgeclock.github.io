@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .stage { position: absolute; inset: 0; perspective: 2200px; transform: scale(1.12); transform-origin: 50% 50%; }
+  .back { left: 118px; top: 118px; transform: rotateY(18deg) rotateZ(-7deg) scale(.9); filter: brightness(.78) saturate(.9); }
+  .front { left: 418px; top: 52px; transform: rotateY(-6deg) rotateZ(1.5deg); z-index: 2; }
+  .slip { left: 790px; top: 196px; width: 318px; transform: rotateZ(7deg); z-index: 3; }
+</style></head>
+<body>
+  <div class="stage">
+    <div class="phone back"><img src="/assets/screens/list.png" alt=""><div class="island"></div></div>
+    <div class="phone front"><img src="/assets/screens/detail.png" alt=""><div class="island"></div></div>
+    <div class="receipt slip" data-h="543"><img src="/assets/screens/receipt-single.png" alt=""></div>
+  </div>
+  <script src="scene.js"></script>
+</body></html>
